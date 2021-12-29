@@ -9,18 +9,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Partido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	private String nomePartido;
+	
 	private String sigla;
-	private String nomeDoPartido;
 	
 	@Enumerated(EnumType.STRING)
-	private LocalDate dataFundacao;
 	private Ideologia ideologia;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy" , shape = JsonFormat.Shape.STRING )
+	private LocalDate dataFundacao;
+	
 	
 	
 

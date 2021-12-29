@@ -17,13 +17,18 @@ public class Associado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAssociado;
+	
 	private String nome;
+	
 	private LocalDate dataNascimento;
+	
 	@Enumerated(EnumType.STRING)
 	private CargoPolitico cargoPolitico;
+	
 	@ManyToOne
 	@JoinColumn
 	private Partido partido;
+	
 	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 }
